@@ -156,10 +156,10 @@ def main():
 
     # Tab titles (edit as needed)
     tabs = st.tabs([
-        "Forecasting & Early Warning",
-        "Disaster Preparedness & Resilience",
-        "Response & Coordination",
-        "Recovery & Reconstruction"
+        "Topic 1",
+        "Topic 2",
+        "Topic 3",
+        "Topic 4"
     ])
 
     with tabs[0]:
