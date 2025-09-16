@@ -131,6 +131,11 @@ st.markdown(f"""
                 opacity: 1;
             }}
         }}
+
+        #MainMenu {{visibility: hidden;}}
+        footer {{visibility: hidden;}}
+        .st-emotion-cache-13ln4jf {{visibility: hidden;}}
+        
     </style>
 """, unsafe_allow_html=True)
 
@@ -140,7 +145,8 @@ st.markdown('<div class="bg-container"></div>', unsafe_allow_html=True)
 # 🔹 Display topic content with animation
 def topic_box_animated(title, points, delay=0.4):
     st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
-    st.markdown(f"<h3 class='fade-title'>{title}</h3>", unsafe_allow_html=True)
+    # st.markdown(f"<h3 class='fade-title'>{title}</h3>", unsafe_allow_html=True)
+    st.markdown(f"<h3 style='font-size: 35px; margin-bottom: 20px;'>{title}</h3>", unsafe_allow_html=True)
     container = st.container()
     with container:
         for point in points:
