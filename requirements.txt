@@ -1,0 +1,33 @@
+
+langgraph>=0.0.33
+langchain>=0.1.16
+langchain-core>=0.3.11
+
+
+langchain-openai>=0.1.7
+openai>=1.13.3
+
+# For summarization support
+langmem>=0.0.6
+
+# transformers>=4.40.0
+# accelerate
+# torch  # Required for model inference (let pip choose platform version)
+# sentencepiece  # Required for tokenizer of many models
+# auto-gptq  # Only if you're planning to run quantized Mistral models locally
+
+
+requests
+httpx
+python-dotenv  # Load API keys from .env
+pydantic>=2.0  # Structured tool args
+
+
+pandas
+scikit-learn
+
+
+tqdm
+rich
+
+streamlit
