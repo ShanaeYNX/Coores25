@@ -107,7 +107,7 @@ st.markdown(f"""
             background-repeat: no-repeat;
             background-size: contain;
             background-position: bottom center;
-            opacity: 0.2;
+            opacity: 0.15;
         }}
 
         /* Make the main app and containers transparent */
