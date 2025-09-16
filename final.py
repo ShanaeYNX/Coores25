@@ -22,7 +22,8 @@ def read_word_doc(filepath):
 def extract_generic_points(text, max_points=4):
     prompt = f"""
     You are analyzing multiple team discussion notes. 
-    Summarize the following into {max_points} high-level, generic discussion points. 
+    Summarize the following into {max_points} high-level, generic discussion points or lesser if thee are not enough points. 
+    - Only answer based on the provided text.
     - Avoid specific solutions, names, or numbers. 
     - Keep points broad and neutral to spark further discussion. 
     - Use 3–6 words per point.

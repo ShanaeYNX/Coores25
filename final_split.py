@@ -27,6 +27,7 @@ def extract_generic_points(text, max_points=7):
     prompt = f"""
     You are analyzing multiple team discussion notes. 
     Summarize the following into {max_points} high-level, generic discussion points or lesser if thee are not enough points. 
+    - Only answer based on the provided text.
     - Avoid specific solutions, names, or numbers. 
     - Keep points broad and neutral to spark further discussion. 
     - Use 3–6 words per point.
@@ -97,6 +98,7 @@ st.markdown("""
 
 # 🔹 Display topic content with animation
 def topic_box_animated(title, points, delay=0.4):
+    st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
     st.markdown(f"<h3 class='fade-title'>{title}</h3>", unsafe_allow_html=True)
     container = st.container()
     with container:
