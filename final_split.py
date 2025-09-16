@@ -5,7 +5,7 @@ from openai import OpenAI
 import streamlit as st
 import time
 from dotenv import load_dotenv
-import re
+import base64
 
 # 🔹 Load environment variables
 load_dotenv()
@@ -78,33 +78,74 @@ def process_all_files(base_folder):
 
 
 # 🔹 Custom styling
+
+# Encode image
+def get_base64_image(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode()
+
+# Load image
+bg_image_path = "background.jpg"
+if not os.path.exists(bg_image_path):
+    st.error("background.png not found!")
+    st.stop()
+
+bg_base64 = get_base64_image(bg_image_path)
+
 st.set_page_config(layout="wide")
-st.markdown("""
+st.markdown(f"""
     <style>
-        .fade-title {
+                /* Background Image as fixed div */
+        .bg-container {{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-image: url('data:image/png;base64,{bg_base64}');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom center;
+            opacity: 0.3;
+        }}
+
+        /* Make the main app and containers transparent */
+        .stApp {{
+            background-color: rgba(255, 255, 255, 0.0);
+        }}
+        .block-container {{
+            background-color: rgba(255, 255, 255, 0.0);
+            padding: 2rem;
+            border-radius: 8px;
+        }}
+   
+        .fade-title {{
             opacity: 0;
             animation: fadeIn 1s forwards;
             animation-delay: 0.1s;
-        }
+        }}
 
-        @keyframes fadeIn {
-            to {
+        @keyframes fadeIn {{
+            to {{
                 opacity: 1;
-            }
-        }
+            }}
+        }}
     </style>
 """, unsafe_allow_html=True)
 
+# Insert the background div!
+st.markdown('<div class="bg-container"></div>', unsafe_allow_html=True)
 
 # 🔹 Display topic content with animation
 def topic_box_animated(title, points, delay=0.4):
-    st.markdown("<div style='margin-top: 40px;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
     st.markdown(f"<h3 class='fade-title'>{title}</h3>", unsafe_allow_html=True)
     container = st.container()
     with container:
         for point in points:
             clean_point = re.sub(r"^\d+[\).]?\s*", "", point).strip()
-            st.markdown(f"<li style='font-size: 20px; margin-left: 15px;'>{clean_point}</li>", unsafe_allow_html=True)
+            st.markdown(f"<li style='font-size: 20px; margin-left: 15px;'><b>{clean_point}<b></li>", unsafe_allow_html=True)
             time.sleep(delay)
 
 
