@@ -154,71 +154,71 @@ def topic_box_animated(title, points, delay=0.4):
             time.sleep(delay)
 
 
-# def main():
-
-#     # Load processed data
-#     base_folder = "team_files"  # folder containing Topic_X_Team_Y.docx
-#     topics_data = process_all_files(base_folder)
-
-#     topics = ["Forecasting & Early Warning", "Disaster Preparedness & Resilience", "Response & Coordination", "Recovery & Reconstruction"]
-
-#     # Layout 2x2
-#     col1_row1, col2_row1 = st.columns([2, 2])
-
-#     with col1_row1:
-#         topic_box_animated(topics[0], topics_data.get("Topic 1", []))
-#     with col2_row1:
-#         topic_box_animated(topics[1], topics_data.get("Topic 2", []))
-
-#     st.markdown("<div style='margin: 50px 0;'></div>", unsafe_allow_html=True)
-
-#     col1_row2, col2_row2 = st.columns([2, 2])
-
-#     with col1_row2:
-#         topic_box_animated(topics[2], topics_data.get("Topic 3", []))
-#     with col2_row2:
-#         topic_box_animated(topics[3], topics_data.get("Topic 4", []))
-
-
 def main():
 
     # Load processed data
     base_folder = "team_files"  # folder containing Topic_X_Team_Y.docx
     topics_data = process_all_files(base_folder)
 
-    # Define 6 slots (Topic 6 will be blank)
-    topics = [
-        "Forecasting & Early Warning",
-        "Disaster Preparedness & Resilience",
-        "Response & Coordination",
-        "Recovery & Reconstruction",
-        "Policy & Governance",
-        ""  # 🔹 Empty slot for Topic 6
-    ]
-    
+    topics = ["Forecasting & Early Warning", "Disaster Preparedness & Resilience", "Response & Coordination", "Recovery & Reconstruction"]
 
-    # --- Row 1 (3 columns) ---
-    col1_row1, col2_row1, col3_row1 = st.columns([1, 1, 1])
+    # Layout 2x2
+    col1_row1, col2_row1 = st.columns([2, 2])
 
     with col1_row1:
         topic_box_animated(topics[0], topics_data.get("Topic 1", []))
     with col2_row1:
         topic_box_animated(topics[1], topics_data.get("Topic 2", []))
-    with col3_row1:
-        topic_box_animated(topics[2], topics_data.get("Topic 3", []))
 
-    # 🔹 Add vertical spacing between rows
     st.markdown("<div style='margin: 50px 0;'></div>", unsafe_allow_html=True)
 
-    # --- Row 2 (3 columns) ---
-    col1_row2, col2_row2, col3_row2 = st.columns([1, 1, 1])
+    col1_row2, col2_row2 = st.columns([2, 2])
 
     with col1_row2:
-        topic_box_animated(topics[3], topics_data.get("Topic 4", []))
+        topic_box_animated(topics[2], topics_data.get("Topic 3", []))
     with col2_row2:
-        topic_box_animated(topics[4], topics_data.get("Topic 5", []))
-    with col3_row2:
-        st.empty()  # keeps layout aligned but blank
+        topic_box_animated(topics[3], topics_data.get("Topic 4", []))
+
+
+# def main():
+
+#     # Load processed data
+#     base_folder = "team_files"  # folder containing Topic_X_Team_Y.docx
+#     topics_data = process_all_files(base_folder)
+
+#     # Define 6 slots (Topic 6 will be blank)
+#     topics = [
+#         "Forecasting & Early Warning",
+#         "Disaster Preparedness & Resilience",
+#         "Response & Coordination",
+#         "Recovery & Reconstruction",
+#         "Policy & Governance",
+#         ""  # 🔹 Empty slot for Topic 6
+#     ]
+    
+
+#     # --- Row 1 (3 columns) ---
+#     col1_row1, col2_row1, col3_row1 = st.columns([1, 1, 1])
+
+#     with col1_row1:
+#         topic_box_animated(topics[0], topics_data.get("Topic 1", []))
+#     with col2_row1:
+#         topic_box_animated(topics[1], topics_data.get("Topic 2", []))
+#     with col3_row1:
+#         topic_box_animated(topics[2], topics_data.get("Topic 3", []))
+
+#     # 🔹 Add vertical spacing between rows
+#     st.markdown("<div style='margin: 50px 0;'></div>", unsafe_allow_html=True)
+
+#     # --- Row 2 (3 columns) ---
+#     col1_row2, col2_row2, col3_row2 = st.columns([1, 1, 1])
+
+#     with col1_row2:
+#         topic_box_animated(topics[3], topics_data.get("Topic 4", []))
+#     with col2_row2:
+#         topic_box_animated(topics[4], topics_data.get("Topic 5", []))
+#     with col3_row2:
+#         st.empty()  # keeps layout aligned but blank
 
 if __name__ == "__main__":
     main()
